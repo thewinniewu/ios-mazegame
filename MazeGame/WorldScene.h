@@ -9,6 +9,6 @@
 #import <SpriteKit/SpriteKit.h>
 #import "CellGrid.h"
 
-@interface WorldScene : SKScene
+@interface WorldScene : SKScene <SKPhysicsContactDelegate>
 
 @end
