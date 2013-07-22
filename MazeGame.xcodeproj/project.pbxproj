@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		86AFB2DC179D9BD800A7B7EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86AFB2DB179D9BD800A7B7EF /* Foundation.framework */; };
+		86AFB2DE179D9BD800A7B7EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86AFB2DD179D9BD800A7B7EF /* CoreGraphics.framework */; };
+		86AFB2E0179D9BD800A7B7EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86AFB2DF179D9BD800A7B7EF /* UIKit.framework */; };
+		86AFB2E6179D9BD800A7B7EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86AFB2E4179D9BD800A7B7EF /* InfoPlist.strings */; };
+		86AFB2E8179D9BD800A7B7EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB2E7179D9BD800A7B7EF /* main.m */; };
+		86AFB2EC179D9BD800A7B7EF /* MazeGameAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB2EB179D9BD800A7B7EF /* MazeGameAppDelegate.m */; };
+		86AFB2EF179D9BD800A7B7EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86AFB2ED179D9BD800A7B7EF /* Main.storyboard */; };
+		86AFB2F2179D9BD800A7B7EF /* MazeGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB2F1179D9BD800A7B7EF /* MazeGameViewController.m */; };
+		86AFB2F4179D9BD800A7B7EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AFB2F3179D9BD800A7B7EF /* Images.xcassets */; };
+		86AFB2FB179D9BD800A7B7EF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86AFB2FA179D9BD800A7B7EF /* XCTest.framework */; };
+		86AFB2FC179D9BD800A7B7EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86AFB2DB179D9BD800A7B7EF /* Foundation.framework */; };
+		86AFB2FD179D9BD800A7B7EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86AFB2DF179D9BD800A7B7EF /* UIKit.framework */; };
+		86AFB305179D9BD800A7B7EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86AFB303179D9BD800A7B7EF /* InfoPlist.strings */; };
+		86AFB307179D9BD800A7B7EF /* MazeGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB306179D9BD800A7B7EF /* MazeGameTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86AFB2FE179D9BD800A7B7EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86AFB2D0179D9BD800A7B7EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86AFB2D7179D9BD800A7B7EF;
+			remoteInfo = MazeGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		86AFB2D8179D9BD800A7B7EF /* MazeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MazeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86AFB2DB179D9BD800A7B7EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		86AFB2DD179D9BD800A7B7EF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		86AFB2DF179D9BD800A7B7EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		86AFB2E3179D9BD800A7B7EF /* MazeGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MazeGame-Info.plist"; sourceTree = "<group>"; };
+		86AFB2E5179D9BD800A7B7EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		86AFB2E7179D9BD800A7B7EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		86AFB2E9179D9BD800A7B7EF /* MazeGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MazeGame-Prefix.pch"; sourceTree = "<group>"; };
+		86AFB2EA179D9BD800A7B7EF /* MazeGameAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MazeGameAppDelegate.h; sourceTree = "<group>"; };
+		86AFB2EB179D9BD800A7B7EF /* MazeGameAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeGameAppDelegate.m; sourceTree = "<group>"; };
+		86AFB2EE179D9BD800A7B7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		86AFB2F0179D9BD800A7B7EF /* MazeGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MazeGameViewController.h; sourceTree = "<group>"; };
+		86AFB2F1179D9BD800A7B7EF /* MazeGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeGameViewController.m; sourceTree = "<group>"; };
+		86AFB2F3179D9BD800A7B7EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		86AFB2F9179D9BD800A7B7EF /* MazeGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MazeGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86AFB2FA179D9BD800A7B7EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		86AFB302179D9BD800A7B7EF /* MazeGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MazeGameTests-Info.plist"; sourceTree = "<group>"; };
+		86AFB304179D9BD800A7B7EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		86AFB306179D9BD800A7B7EF /* MazeGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeGameTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		86AFB2D5179D9BD800A7B7EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86AFB2DE179D9BD800A7B7EF /* CoreGraphics.framework in Frameworks */,
+				86AFB2E0179D9BD800A7B7EF /* UIKit.framework in Frameworks */,
+				86AFB2DC179D9BD800A7B7EF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86AFB2F6179D9BD800A7B7EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86AFB2FB179D9BD800A7B7EF /* XCTest.framework in Frameworks */,
+				86AFB2FD179D9BD800A7B7EF /* UIKit.framework in Frameworks */,
+				86AFB2FC179D9BD800A7B7EF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		86AFB2CF179D9BD800A7B7EF = {
+			isa = PBXGroup;
+			children = (
+				86AFB2E1179D9BD800A7B7EF /* MazeGame */,
+				86AFB300179D9BD800A7B7EF /* MazeGameTests */,
+				86AFB2DA179D9BD800A7B7EF /* Frameworks */,
+				86AFB2D9179D9BD800A7B7EF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		86AFB2D9179D9BD800A7B7EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86AFB2D8179D9BD800A7B7EF /* MazeGame.app */,
+				86AFB2F9179D9BD800A7B7EF /* MazeGameTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		86AFB2DA179D9BD800A7B7EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86AFB2DB179D9BD800A7B7EF /* Foundation.framework */,
+				86AFB2DD179D9BD800A7B7EF /* CoreGraphics.framework */,
+				86AFB2DF179D9BD800A7B7EF /* UIKit.framework */,
+				86AFB2FA179D9BD800A7B7EF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86AFB2E1179D9BD800A7B7EF /* MazeGame */ = {
+			isa = PBXGroup;
+			children = (
+				86AFB2EA179D9BD800A7B7EF /* MazeGameAppDelegate.h */,
+				86AFB2EB179D9BD800A7B7EF /* MazeGameAppDelegate.m */,
+				86AFB2ED179D9BD800A7B7EF /* Main.storyboard */,
+				86AFB2F0179D9BD800A7B7EF /* MazeGameViewController.h */,
+				86AFB2F1179D9BD800A7B7EF /* MazeGameViewController.m */,
+				86AFB2F3179D9BD800A7B7EF /* Images.xcassets */,
+				86AFB2E2179D9BD800A7B7EF /* Supporting Files */,
+			);
+			path = MazeGame;
+			sourceTree = "<group>";
+		};
+		86AFB2E2179D9BD800A7B7EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				86AFB2E3179D9BD800A7B7EF /* MazeGame-Info.plist */,
+				86AFB2E4179D9BD800A7B7EF /* InfoPlist.strings */,
+				86AFB2E7179D9BD800A7B7EF /* main.m */,
+				86AFB2E9179D9BD800A7B7EF /* MazeGame-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86AFB300179D9BD800A7B7EF /* MazeGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				86AFB306179D9BD800A7B7EF /* MazeGameTests.m */,
+				86AFB301179D9BD800A7B7EF /* Supporting Files */,
+			);
+			path = MazeGameTests;
+			sourceTree = "<group>";
+		};
+		86AFB301179D9BD800A7B7EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				86AFB302179D9BD800A7B7EF /* MazeGameTests-Info.plist */,
+				86AFB303179D9BD800A7B7EF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		86AFB2D7179D9BD800A7B7EF /* MazeGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86AFB30A179D9BD800A7B7EF /* Build configuration list for PBXNativeTarget "MazeGame" */;
+			buildPhases = (
+				86AFB2D4179D9BD800A7B7EF /* Sources */,
+				86AFB2D5179D9BD800A7B7EF /* Frameworks */,
+				86AFB2D6179D9BD800A7B7EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MazeGame;
+			productName = MazeGame;
+			productReference = 86AFB2D8179D9BD800A7B7EF /* MazeGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		86AFB2F8179D9BD800A7B7EF /* MazeGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86AFB30D179D9BD800A7B7EF /* Build configuration list for PBXNativeTarget "MazeGameTests" */;
+			buildPhases = (
+				86AFB2F5179D9BD800A7B7EF /* Sources */,
+				86AFB2F6179D9BD800A7B7EF /* Frameworks */,
+				86AFB2F7179D9BD800A7B7EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86AFB2FF179D9BD800A7B7EF /* PBXTargetDependency */,
+			);
+			name = MazeGameTests;
+			productName = MazeGameTests;
+			productReference = 86AFB2F9179D9BD800A7B7EF /* MazeGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		86AFB2D0179D9BD800A7B7EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MazeGame;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Winnie Wu";
+				TargetAttributes = {
+					86AFB2F8179D9BD800A7B7EF = {
+						TestTargetID = 86AFB2D7179D9BD800A7B7EF;
+					};
+				};
+			};
+			buildConfigurationList = 86AFB2D3179D9BD800A7B7EF /* Build configuration list for PBXProject "MazeGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 86AFB2CF179D9BD800A7B7EF;
+			productRefGroup = 86AFB2D9179D9BD800A7B7EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				86AFB2D7179D9BD800A7B7EF /* MazeGame */,
+				86AFB2F8179D9BD800A7B7EF /* MazeGameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		86AFB2D6179D9BD800A7B7EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86AFB2F4179D9BD800A7B7EF /* Images.xcassets in Resources */,
+				86AFB2E6179D9BD800A7B7EF /* InfoPlist.strings in Resources */,
+				86AFB2EF179D9BD800A7B7EF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86AFB2F7179D9BD800A7B7EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86AFB305179D9BD800A7B7EF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		86AFB2D4179D9BD800A7B7EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86AFB2E8179D9BD800A7B7EF /* main.m in Sources */,
+				86AFB2F2179D9BD800A7B7EF /* MazeGameViewController.m in Sources */,
+				86AFB2EC179D9BD800A7B7EF /* MazeGameAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86AFB2F5179D9BD800A7B7EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86AFB307179D9BD800A7B7EF /* MazeGameTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86AFB2FF179D9BD800A7B7EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86AFB2D7179D9BD800A7B7EF /* MazeGame */;
+			targetProxy = 86AFB2FE179D9BD800A7B7EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		86AFB2E4179D9BD800A7B7EF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86AFB2E5179D9BD800A7B7EF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		86AFB2ED179D9BD800A7B7EF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86AFB2EE179D9BD800A7B7EF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		86AFB303179D9BD800A7B7EF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86AFB304179D9BD800A7B7EF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		86AFB308179D9BD800A7B7EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		86AFB309179D9BD800A7B7EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		86AFB30B179D9BD800A7B7EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MazeGame/MazeGame-Prefix.pch";
+				INFOPLIST_FILE = "MazeGame/MazeGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		86AFB30C179D9BD800A7B7EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MazeGame/MazeGame-Prefix.pch";
+				INFOPLIST_FILE = "MazeGame/MazeGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		86AFB30E179D9BD800A7B7EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MazeGame.app/MazeGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MazeGame/MazeGame-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MazeGameTests/MazeGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		86AFB30F179D9BD800A7B7EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MazeGame.app/MazeGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MazeGame/MazeGame-Prefix.pch";
+				INFOPLIST_FILE = "MazeGameTests/MazeGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		86AFB2D3179D9BD800A7B7EF /* Build configuration list for PBXProject "MazeGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86AFB308179D9BD800A7B7EF /* Debug */,
+				86AFB309179D9BD800A7B7EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86AFB30A179D9BD800A7B7EF /* Build configuration list for PBXNativeTarget "MazeGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86AFB30B179D9BD800A7B7EF /* Debug */,
+				86AFB30C179D9BD800A7B7EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		86AFB30D179D9BD800A7B7EF /* Build configuration list for PBXNativeTarget "MazeGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86AFB30E179D9BD800A7B7EF /* Debug */,
+				86AFB30F179D9BD800A7B7EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 86AFB2D0179D9BD800A7B7EF /* Project object */;
+}
