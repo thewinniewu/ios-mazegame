@@ -13,6 +13,18 @@
 @property (nonatomic, strong) NSArray *borderArray;
 @property (nonatomic, strong) NSArray *wallsArray;
 
+@property int row;
+@property int col;
+
+@property BOOL isStart;
+@property BOOL isEnd;
+
+@property BOOL northWall;
+@property BOOL eastWall;
+@property BOOL southWall;
+@property BOOL westWall;
+
+
 @property BOOL visited;
 
 @end

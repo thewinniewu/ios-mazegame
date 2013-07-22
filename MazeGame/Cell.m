@@ -19,6 +19,16 @@
         _borderArray = [[NSArray alloc] initWithArray:zeroes copyItems:YES];
         _wallsArray = [[NSArray alloc] initWithArray:zeroes copyItems:YES];
         _visited = NO;
+        _isStart = NO;
+        _isEnd = NO;
+        
+        _northWall = YES;
+        _eastWall = YES;
+        _southWall = YES;
+        _westWall = YES;
+
+        
+        
         
     }
     return self;

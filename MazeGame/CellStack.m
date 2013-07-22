@@ -16,11 +16,33 @@
     if (self)
     {
         stack = [[NSMutableArray alloc] init];
-        count = 0;
+        _count = 0;
     }
     return self;
 }
 
+- (void) push:(id)object
+{
+    [stack addObject:object];
+    _count = [stack count];
+}
 
+- (id) pop
+{
+    id object = nil;
+    if ([stack count] > 0)
+    {
+        object = [stack lastObject];
+        [stack removeObject: [stack lastObject]];
+        _count = [stack count];
+    }
+    return object;
+}
+
+-(void) clear
+{
+    [stack removeAllObjects];
+    _count = 0;
+}
 
 @end
