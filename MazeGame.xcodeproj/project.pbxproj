@@ -21,6 +21,7 @@
 		86AFB2FD179D9BD800A7B7EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86AFB2DF179D9BD800A7B7EF /* UIKit.framework */; };
 		86AFB305179D9BD800A7B7EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86AFB303179D9BD800A7B7EF /* InfoPlist.strings */; };
 		86AFB307179D9BD800A7B7EF /* MazeGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB306179D9BD800A7B7EF /* MazeGameTests.m */; };
+		86AFB311179D9BF200A7B7EF /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86AFB310179D9BF200A7B7EF /* SpriteKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		86AFB302179D9BD800A7B7EF /* MazeGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MazeGameTests-Info.plist"; sourceTree = "<group>"; };
 		86AFB304179D9BD800A7B7EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		86AFB306179D9BD800A7B7EF /* MazeGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeGameTests.m; sourceTree = "<group>"; };
+		86AFB310179D9BF200A7B7EF /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86AFB311179D9BF200A7B7EF /* SpriteKit.framework in Frameworks */,
 				86AFB2DE179D9BD800A7B7EF /* CoreGraphics.framework in Frameworks */,
 				86AFB2E0179D9BD800A7B7EF /* UIKit.framework in Frameworks */,
 				86AFB2DC179D9BD800A7B7EF /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		86AFB2DA179D9BD800A7B7EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86AFB310179D9BF200A7B7EF /* SpriteKit.framework */,
 				86AFB2DB179D9BD800A7B7EF /* Foundation.framework */,
 				86AFB2DD179D9BD800A7B7EF /* CoreGraphics.framework */,
 				86AFB2DF179D9BD800A7B7EF /* UIKit.framework */,
@@ -380,7 +384,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MazeGame/MazeGame-Prefix.pch";
 				INFOPLIST_FILE = "MazeGame/MazeGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -393,7 +399,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MazeGame/MazeGame-Prefix.pch";
 				INFOPLIST_FILE = "MazeGame/MazeGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
