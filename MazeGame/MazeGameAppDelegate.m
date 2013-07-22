@@ -7,6 +7,7 @@
 //
 
 #import "MazeGameAppDelegate.h"
+#import <SpriteKit/SpriteKit.h>
 
 @implementation MazeGameAppDelegate
 

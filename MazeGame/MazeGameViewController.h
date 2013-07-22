@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WorldScene.h"
 
 @interface MazeGameViewController : UIViewController
 

@@ -22,6 +22,10 @@
 		86AFB305179D9BD800A7B7EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86AFB303179D9BD800A7B7EF /* InfoPlist.strings */; };
 		86AFB307179D9BD800A7B7EF /* MazeGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB306179D9BD800A7B7EF /* MazeGameTests.m */; };
 		86AFB311179D9BF200A7B7EF /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86AFB310179D9BF200A7B7EF /* SpriteKit.framework */; };
+		86AFB314179DA1F700A7B7EF /* WorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB313179DA1F700A7B7EF /* WorldScene.m */; };
+		86AFB318179DA8BE00A7B7EF /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB317179DA8BE00A7B7EF /* Cell.m */; };
+		86AFB31B179DA94500A7B7EF /* CellGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB31A179DA94500A7B7EF /* CellGrid.m */; };
+		86AFB31E179DB3BE00A7B7EF /* CellStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AFB31D179DB3BE00A7B7EF /* CellStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,14 @@
 		86AFB304179D9BD800A7B7EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		86AFB306179D9BD800A7B7EF /* MazeGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeGameTests.m; sourceTree = "<group>"; };
 		86AFB310179D9BF200A7B7EF /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		86AFB312179DA1F700A7B7EF /* WorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldScene.h; sourceTree = "<group>"; };
+		86AFB313179DA1F700A7B7EF /* WorldScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldScene.m; sourceTree = "<group>"; };
+		86AFB316179DA8BE00A7B7EF /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		86AFB317179DA8BE00A7B7EF /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		86AFB319179DA94400A7B7EF /* CellGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellGrid.h; sourceTree = "<group>"; };
+		86AFB31A179DA94500A7B7EF /* CellGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellGrid.m; sourceTree = "<group>"; };
+		86AFB31C179DB3BE00A7B7EF /* CellStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellStack.h; sourceTree = "<group>"; };
+		86AFB31D179DB3BE00A7B7EF /* CellStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +133,14 @@
 				86AFB2ED179D9BD800A7B7EF /* Main.storyboard */,
 				86AFB2F0179D9BD800A7B7EF /* MazeGameViewController.h */,
 				86AFB2F1179D9BD800A7B7EF /* MazeGameViewController.m */,
+				86AFB312179DA1F700A7B7EF /* WorldScene.h */,
+				86AFB313179DA1F700A7B7EF /* WorldScene.m */,
+				86AFB319179DA94400A7B7EF /* CellGrid.h */,
+				86AFB31A179DA94500A7B7EF /* CellGrid.m */,
+				86AFB316179DA8BE00A7B7EF /* Cell.h */,
+				86AFB31C179DB3BE00A7B7EF /* CellStack.h */,
+				86AFB31D179DB3BE00A7B7EF /* CellStack.m */,
+				86AFB317179DA8BE00A7B7EF /* Cell.m */,
 				86AFB2F3179D9BD800A7B7EF /* Images.xcassets */,
 				86AFB2E2179D9BD800A7B7EF /* Supporting Files */,
 			);
@@ -254,9 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86AFB318179DA8BE00A7B7EF /* Cell.m in Sources */,
 				86AFB2E8179D9BD800A7B7EF /* main.m in Sources */,
+				86AFB314179DA1F700A7B7EF /* WorldScene.m in Sources */,
+				86AFB31B179DA94500A7B7EF /* CellGrid.m in Sources */,
 				86AFB2F2179D9BD800A7B7EF /* MazeGameViewController.m in Sources */,
 				86AFB2EC179D9BD800A7B7EF /* MazeGameAppDelegate.m in Sources */,
+				86AFB31E179DB3BE00A7B7EF /* CellStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
