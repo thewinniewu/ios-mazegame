@@ -74,7 +74,7 @@ static const uint32_t endCategory  =  0x1 << 2;
     [mazeGrid buildMaze];
     
     float xPos = self.view.bounds.size.width / 4;
-    float yPos = self.view.bounds.size.height / 2;
+    float yPos = self.view.bounds.size.height * 3 / 4;
     
     SKSpriteNode *player = [self newPlayer];
     player.position = CGPointMake(xPos, yPos);

@@ -122,7 +122,7 @@ int const WEST = 3;
 
 - (id) init
 {
-    return [self initWithCols:4 withRows:4];
+    return [self initWithCols:4 withRows:6];
 }
 
 - (int) randomDirection: (int) upperLim
