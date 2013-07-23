@@ -180,13 +180,13 @@ static const uint32_t endCategory  =  0x1 << 2;
     CGPoint pos = [touch locationInNode:self];
 
     if (pos.x < player.position.x)
-        self.physicsWorld.gravity = CGPointMake(0, 100);
+        self.physicsWorld.gravity = CGPointMake(-10, self.physicsWorld.gravity.y);
     if (pos.x > player.position.x)
-        self.physicsWorld.gravity = CGPointMake(0, -100);
+        self.physicsWorld.gravity = CGPointMake(10, self.physicsWorld.gravity.y);
     if (pos.y > player.position.y)
-        self.physicsWorld.gravity = CGPointMake(100, 0);
+        self.physicsWorld.gravity = CGPointMake(self.physicsWorld.gravity.x, 10);
     if (pos.y < player.position.y)
-        self.physicsWorld.gravity = CGPointMake(-100, 0);
+        self.physicsWorld.gravity = CGPointMake(self.physicsWorld.gravity.x, -10);
 
     
 }
