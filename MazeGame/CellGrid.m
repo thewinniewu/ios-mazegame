@@ -52,6 +52,7 @@ int const WEST = 3;
     return self;
 }
 
+// must set init below to be initWithCols: 3 withRows: 3 to run this
 - (void) buildSimpleMazeTwo
 {
     Cell *a1 = [[[self columns] objectAtIndex: 0] objectAtIndex: 0];
@@ -63,7 +64,7 @@ int const WEST = 3;
     Cell *c1 = [[[self columns] objectAtIndex: 2] objectAtIndex: 0];
     Cell *c2 = [[[self columns] objectAtIndex: 2] objectAtIndex: 1];
     Cell *c3 = [[[self columns] objectAtIndex: 2] objectAtIndex: 2];
-   
+    
     [a1 setIsStart: YES];
     [a1 setSouthWall: NO];
     
@@ -78,7 +79,7 @@ int const WEST = 3;
     
     [c3 setWestWall: NO];
     [c3 setNorthWall:NO];
-
+    
     [c2 setSouthWall: NO];
     [c2 setWestWall:NO];
     
@@ -93,7 +94,7 @@ int const WEST = 3;
     
 }
 
-
+// must set init below to be initWithCols: 2 withRows: 2 to run this
 - (void) buildSimpleMaze
 {
     Cell *upperLeft = [[[self columns] objectAtIndex: 0] objectAtIndex: 0];
@@ -121,7 +122,7 @@ int const WEST = 3;
 
 - (id) init
 {
-    return [self initWithCols:3 withRows:3];
+    return [self initWithCols:4 withRows:4];
 }
 
 - (int) randomDirection: (int) upperLim
@@ -131,57 +132,90 @@ int const WEST = 3;
 
 - (void)moveRow:(int *)rowPtr column:(int *)colPtr inDirection:(int)direction
 {
-    if (direction == NORTH)
+    if (direction == NORTH && *rowPtr > 0)
         *rowPtr -= 1;
-    else if (direction == EAST)
+    else if (direction == EAST && (*colPtr + 1) < [[self columns] count])
         *colPtr += 1;
-    else if (direction == SOUTH)
+    else if (direction == SOUTH && (*rowPtr + 1) < [[[self columns] objectAtIndex: 0] count])
         *rowPtr += 1;
-    else if (direction == WEST)
+    else if (direction == WEST && *colPtr > 0)
         *colPtr -= 1;
     else
-        NSLog(@"error, not a valid direction from moveRow");
+        NSLog(@"not a valid direction from moveRow, colPtr/rowPtr unchanged");
     
     
 }
+
+- (NSMutableArray *) findAllNeighbours: (Cell *) cell
+{
+    NSMutableArray *neighbours = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [[cell wallsArray] count]; i++)
+    {
+        int newCol = [cell col];
+        int newRow = [cell row];
+        [self moveRow:&newRow column:&newCol inDirection:i];
+        [neighbours addObject: [[[self columns] objectAtIndex:newCol] objectAtIndex: newRow]];
+        
+    }
+    return neighbours;
+    
+}
+
+- (NSMutableArray *) findUnvisitedNeighbours: (NSMutableArray *) neighbours
+{
+    NSMutableArray *unvisitedNeighbours = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [neighbours count]; i++)
+    {
+        if (![[neighbours objectAtIndex:i] visited])
+            [unvisitedNeighbours addObject: [neighbours objectAtIndex: i]];
+    }
+    return unvisitedNeighbours;
+}
+
 
 - (void) buildMaze
 {
     CellStack *cStack = [[CellStack alloc] init];
     
     [self setCurrentCell: [[[self columns] objectAtIndex: 0] objectAtIndex: 0]];
+    [[self currentCell] setIsStart: YES];
+    
+    NSLog(@"Current cell: %@", [self currentCell]);
+    NSLog(@"Total cells: %d", [self totalCells]);
     
     while ([self visitedCells] < [self totalCells])
     {
-        NSMutableArray *neighbours = [[NSMutableArray alloc] init];
-        for (int i = 0; i < [[[self currentCell] wallsArray] count]; i++)
-        {
-            int newCol = [[self currentCell] col];
-            int newRow = [[self currentCell] row];
-            [self moveRow:&newRow column:&newCol inDirection:i];
-            [neighbours insertObject: [[[self columns] objectAtIndex:newCol] objectAtIndex: newRow] atIndex:i];
-            
-        }
+        [[self currentCell] setVisited: YES];
+
+        NSMutableArray *neighbours = [self findAllNeighbours: [self currentCell]];
         
-        NSMutableArray *unvisitedNeighbours = [[NSMutableArray alloc] init];
-        
-        for (int i = 0; i < [neighbours count]; i++)
-        {
-            if (![[unvisitedNeighbours objectAtIndex:i] visited])
-                [unvisitedNeighbours addObject: [unvisitedNeighbours objectAtIndex: i]];
-        }
+        NSMutableArray *unvisitedNeighbours = [self findUnvisitedNeighbours: neighbours];
         
         if ([unvisitedNeighbours count] > 0)
         {
-            int newDir = [self randomDirection:4];
-            Cell *newCell;
+            Cell *newCell = nil;
             while (newCell == nil)
             {
+                int newDir = [self randomDirection:4];
                 if (![[neighbours objectAtIndex:newDir] visited]) {
+                    
                     newCell = [neighbours objectAtIndex:newDir];
-                    [[newCell wallsArray] replaceObjectAtIndex: (newDir % 4) withObject: @1];
-                    [[[self currentCell] wallsArray] replaceObjectAtIndex: newDir withObject: @1];
-                    [[self currentCell] setVisited: YES];
+                    
+                    if (newDir == NORTH) {
+                        [[self currentCell] setNorthWall: NO];
+                        [newCell setSouthWall: NO];
+                    } else if (newDir == EAST) {
+                        [[self currentCell] setEastWall: NO];
+                        [newCell setWestWall: NO];
+                    } else if (newDir == SOUTH) {
+                        [[self currentCell] setSouthWall: NO];
+                        [newCell setNorthWall: NO];
+                    } else {
+                        [[self currentCell] setWestWall: NO];
+                        [newCell setEastWall: NO];
+                    }
+                    
                     [cStack push: [self currentCell]];
                     [self setCurrentCell: newCell];
                     [self setVisitedCells: [self visitedCells] + 1];
@@ -192,29 +226,9 @@ int const WEST = 3;
         }
         
     }
-    
-    for (int col = 0; col < [[self columns] count]; col ++)
-    {
-        for (int row = 0; row < [[[self columns] objectAtIndex: col] count]; row ++)
-        {
-            Cell *cell = [[[self columns] objectAtIndex: col] objectAtIndex: row];
-            [self setWalls: cell];
-        }
-    }
-        
-         
-         }
+        [[self currentCell] setIsEnd: YES];
 
-- (void) setWalls: (Cell *) cell
-{
-    if ([[[cell borderArray] objectAtIndex: 0]  isEqual: @1] || [[[cell wallsArray] objectAtIndex: 0]  isEqual: @1])
-        [cell setNorthWall: NO];
-    if ([[[cell borderArray] objectAtIndex: 1]  isEqual: @1] || [[[cell wallsArray] objectAtIndex: 1]  isEqual: @1])
-        [cell setEastWall: NO];
-    if ([[[cell borderArray] objectAtIndex: 2]  isEqual: @1] || [[[cell wallsArray] objectAtIndex: 2]  isEqual: @1])
-        [cell setSouthWall: NO];
-    if ([[[cell borderArray] objectAtIndex: 3]  isEqual: @1] || [[[cell wallsArray] objectAtIndex: 3]  isEqual: @1])
-        [cell setWestWall: NO];
 }
+
 
 @end
