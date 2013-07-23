@@ -35,27 +35,6 @@ static const uint32_t endCategory  =  0x1 << 2;
     return self;
 }
 
-- (void)didBeginContact:(SKPhysicsContact *)contact
-{
-    SKPhysicsBody *firstBody, *secondBody;
-    
-    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
-    {
-        firstBody = contact.bodyA;
-        secondBody = contact.bodyB;
-    }
-    else
-    {
-        firstBody = contact.bodyB;
-        secondBody = contact.bodyA;
-    }
-    if ((firstBody.categoryBitMask & endCategory) != 0)
-    {
-        NSLog(@"you won");
-    }
-}
-
-
 - (void) didMoveToView:(SKView *)view
 {
     if (!self.contentCreated)
@@ -95,11 +74,24 @@ static const uint32_t endCategory  =  0x1 << 2;
     // NSLog(@"Cellgrid: %@", [mazeGrid columns]);
     
     [self addChild: player];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(refresh:)
+     forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"New Maze" forState:UIControlStateNormal];
+    button.frame = CGRectMake(100.0, 20.0, 100.0, 40.0);
+    [self.view addSubview:button];
 
 
     
     
     
+}
+
+- (void) refresh: (id) sender
+{
+    [self createSceneContents];
 }
 
 - (void) drawCell: (Cell *) cell AtX: (float)xPos atY: (float)yPos
