@@ -122,7 +122,7 @@ int const WEST = 3;
 
 - (id) init
 {
-    return [self initWithCols:4 withRows:6];
+    return [self initWithCols:12 withRows:15];
 }
 
 - (int) randomDirection: (int) upperLim
@@ -181,6 +181,7 @@ int const WEST = 3;
     [self setCurrentCell: [[[self columns] objectAtIndex: 0] objectAtIndex: 0]];
     [[self currentCell] setIsStart: YES];
     
+    
     NSLog(@"Current cell: %@", [self currentCell]);
     NSLog(@"Total cells: %d", [self totalCells]);
     
@@ -218,6 +219,8 @@ int const WEST = 3;
                     
                     [cStack push: [self currentCell]];
                     [self setCurrentCell: newCell];
+                    if ([[self currentCell] isEqual: [[[self columns] lastObject] lastObject]])
+                        [[self currentCell] setIsEnd: YES];
                     [self setVisitedCells: [self visitedCells] + 1];
                 }
             }
@@ -226,7 +229,6 @@ int const WEST = 3;
         }
         
     }
-        [[self currentCell] setIsEnd: YES];
 
 }
 

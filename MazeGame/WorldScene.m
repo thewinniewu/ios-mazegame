@@ -13,7 +13,8 @@ static const uint32_t playerCategory  =  0x1 << 0;
 static const uint32_t wallsCategory  =  0x1 << 1;
 static const uint32_t endCategory  =  0x1 << 2;
 
-
+int const TILESIZE = 20;
+int const PLAYERSIZE = 8;
 
 @interface WorldScene ()
 
@@ -54,8 +55,8 @@ static const uint32_t endCategory  =  0x1 << 2;
  //   [mazeGrid buildSimpleMazeTwo];
     [mazeGrid buildMaze];
     
-    float xPos = self.view.bounds.size.width / 4;
-    float yPos = self.view.bounds.size.height * 3 / 4;
+    float xPos = self.view.bounds.size.width * 1 / 6;
+    float yPos = self.view.bounds.size.height * 8 / 10;
     
     SKSpriteNode *player = [self newPlayer];
     player.position = CGPointMake(xPos, yPos);
@@ -67,10 +68,10 @@ static const uint32_t endCategory  =  0x1 << 2;
         for (Cell *cellInRow in column)
         {
             [self drawCell: cellInRow AtX:xPos atY:yPos];
-            yPos -= 50;
+            yPos -= TILESIZE;
         }
-        xPos += 50;
-        yPos += [column count] * 50;
+        xPos += TILESIZE;
+        yPos += [column count] * TILESIZE;
     }
     
     // NSLog(@"Cellgrid: %@", [mazeGrid columns]);
@@ -92,14 +93,13 @@ static const uint32_t endCategory  =  0x1 << 2;
 
 - (void) refresh: (id) sender
 {
-    [self.view setNeedsDisplay];
     [self removeAllChildren];
     [self createSceneContents];
 }
 
 - (void) drawCell: (Cell *) cell AtX: (float)xPos atY: (float)yPos
 {
-    SKSpriteNode *tile = [[SKSpriteNode alloc] initWithColor: [SKColor whiteColor] size:CGSizeMake(50,50)];
+    SKSpriteNode *tile = [[SKSpriteNode alloc] initWithColor: [SKColor whiteColor] size:CGSizeMake(TILESIZE,TILESIZE)];
     
     if ([cell isStart])
         tile.color = [SKColor redColor];
@@ -119,13 +119,13 @@ static const uint32_t endCategory  =  0x1 << 2;
     [self addChild: tile];
 
     if ([cell northWall])
-        [self drawWall: NORTH atX: xPos atY: (yPos + 25)];
+        [self drawWall: NORTH atX: xPos atY: (yPos + TILESIZE / 2)];
     if ([cell eastWall])
-        [self drawWall: EAST atX: (xPos + 25) atY: yPos];
+        [self drawWall: EAST atX: (xPos + TILESIZE / 2) atY: yPos];
     if ([cell southWall])
-        [self drawWall: SOUTH atX: xPos atY: (yPos - 25)];
+        [self drawWall: SOUTH atX: xPos atY: (yPos - TILESIZE / 2)];
     if ([cell westWall])
-        [self drawWall: WEST atX: (xPos - 25) atY: yPos];
+        [self drawWall: WEST atX: (xPos - TILESIZE / 2) atY: yPos];
     
 }
 
@@ -134,9 +134,9 @@ static const uint32_t endCategory  =  0x1 << 2;
     SKSpriteNode *wall;
     
     if (direction == NORTH || direction == SOUTH)
-    wall = [[SKSpriteNode alloc] initWithColor: [SKColor blackColor] size:CGSizeMake(50, 5)];
+    wall = [[SKSpriteNode alloc] initWithColor: [SKColor blackColor] size:CGSizeMake(TILESIZE, 2)];
     else
-        wall = [[SKSpriteNode alloc] initWithColor: [SKColor blackColor] size:CGSizeMake(5, 50)];
+        wall = [[SKSpriteNode alloc] initWithColor: [SKColor blackColor] size:CGSizeMake(2, TILESIZE)];
 
     wall.position = CGPointMake(xPos, yPos);
     
@@ -151,7 +151,7 @@ static const uint32_t endCategory  =  0x1 << 2;
 
 - (SKSpriteNode *) newPlayer
 {
-    SKSpriteNode *player = [[SKSpriteNode alloc] initWithColor:[SKColor blueColor] size:CGSizeMake(10, 10)];
+    SKSpriteNode *player = [[SKSpriteNode alloc] initWithColor:[SKColor blueColor] size:CGSizeMake(PLAYERSIZE, PLAYERSIZE)];
     
     
     player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:player.size];
