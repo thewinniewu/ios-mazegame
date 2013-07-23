@@ -73,7 +73,7 @@ int const WEST = 3;
     
     [upperLeft setIsStart: YES];
     [upperRight setIsEnd: YES];
-
+    
     
 }
 
@@ -126,17 +126,35 @@ int const WEST = 3;
         NSMutableArray *unvisitedNeighbours = [[NSMutableArray alloc] init];
         for (int i = 0; i < [[[self currentCell] wallsArray] count]; i++)
         {
-            if ([[[self currentCell] wallsArray] objectAtIndex:i] == 0)
+            if (![[self currentCell] visited])
             {
                 int newCol = [[self currentCell] col];
                 int newRow = [[self currentCell] row];
                 [self moveRow:&newRow column:&newCol inDirection:i];
-                [unvisitedNeighbours addObject: [[[self columns] objectAtIndex:newCol] objectAtIndex: newRow]];
+                [unvisitedNeighbours insertObject: [[[self columns] objectAtIndex:newCol] objectAtIndex: newRow] atIndex:i];
+                
+                
             }
         }
         
-        
-        
+        if ([unvisitedNeighbours count] > 0)
+        {
+            int newDir = [self randomDirection:4];
+            Cell *newCell;
+            while (newCell == nil)
+            {
+                if ([unvisitedNeighbours objectAtIndex:newDir]) {
+                    newCell = [unvisitedNeighbours objectAtIndex:newDir];
+                    [[newCell wallsArray] replaceObjectAtIndex: (newDir % 4) withObject: @1];
+                    [[[self currentCell] wallsArray] replaceObjectAtIndex: newDir withObject: @1];
+                    [cStack push: [self currentCell]];
+                    [self setCurrentCell: newCell];
+                    [self setVisitedCells: [self visitedCells] + 1];
+                }                }
+        } else {
+            [self setCurrentCell: [cStack pop]];
+        }
+
     }
 }
 

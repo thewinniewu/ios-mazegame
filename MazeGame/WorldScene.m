@@ -55,10 +55,6 @@ static const uint32_t endCategory  =  0x1 << 2;
     }
 }
 
-- (void) bounceOff
-{
-    
-}
 
 - (void) didMoveToView:(SKView *)view
 {
@@ -190,37 +186,6 @@ static const uint32_t endCategory  =  0x1 << 2;
 
     
 }
-//
-//- (void)applyForceInDirection: (int)direction
-//{
-//CGPoint point = CGPointZero;
-//    switch (direction)
-//    {
-//        case NORTH:
-//            point = CGPointMake(0, 100);
-//        case EAST:
-//    }
-//    
-//}
-
-- (void)touchesMoved:(NSSet *) touches withEvent:(UIEvent *)event
-{
-    //Grab the touch data.
-    UITouch * touch = [touches anyObject];
-    SKNode *player = [self childNodeWithName:@"player"];
-    CGPoint pos = [touch locationInNode:self];
-    
-    
-    if (pos.x < player.position.x)
-        self.physicsWorld.gravity = CGPointMake(0, 100);
-    if (pos.x > player.position.x)
-        self.physicsWorld.gravity = CGPointMake(0, -100);
-    if (pos.y > player.position.y)
-        self.physicsWorld.gravity = CGPointMake(100, 0);
-    if (pos.y < player.position.y)
-        self.physicsWorld.gravity = CGPointMake(-100, 0);
-}
-
 
 
 

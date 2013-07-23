@@ -16,8 +16,8 @@
     if (self)
     {
         NSArray *zeroes = @[@0, @0, @0, @0];
-        _borderArray = [[NSArray alloc] initWithArray:zeroes copyItems:YES];
-        _wallsArray = [[NSArray alloc] initWithArray:zeroes copyItems:YES];
+        _borderArray = [[NSMutableArray alloc] initWithArray:zeroes copyItems:YES];
+        _wallsArray = [[NSMutableArray alloc] initWithArray:zeroes copyItems:YES];
         _visited = NO;
         _isStart = NO;
         _isEnd = NO;

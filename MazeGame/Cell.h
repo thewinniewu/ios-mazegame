@@ -10,8 +10,8 @@
 
 @interface Cell : NSObject
 
-@property (nonatomic, strong) NSArray *borderArray;
-@property (nonatomic, strong) NSArray *wallsArray;
+@property (nonatomic, strong) NSMutableArray *borderArray;
+@property (nonatomic, strong) NSMutableArray *wallsArray;
 
 @property int row;
 @property int col;
