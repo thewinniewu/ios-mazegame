@@ -46,6 +46,8 @@ static const uint32_t endCategory  =  0x1 << 2;
 
 - (void) createSceneContents
 {
+    self.physicsWorld.gravity = CGPointMake(0,0);
+
     self.backgroundColor = [SKColor lightGrayColor];
     self.scaleMode = SKSceneScaleModeAspectFit;
     CellGrid *mazeGrid = [[CellGrid alloc] init];
@@ -86,11 +88,12 @@ static const uint32_t endCategory  =  0x1 << 2;
 
     
     
-    
 }
 
 - (void) refresh: (id) sender
 {
+    [self.view setNeedsDisplay];
+    [self removeAllChildren];
     [self createSceneContents];
 }
 
