@@ -27,6 +27,7 @@ extern const int WEST;
 
 - (void) buildMaze;
 - (void) buildSimpleMaze;
+-(void) buildSimpleMazeTwo;
 
 
 @end

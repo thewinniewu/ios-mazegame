@@ -70,7 +70,7 @@ static const uint32_t endCategory  =  0x1 << 2;
     self.backgroundColor = [SKColor lightGrayColor];
     self.scaleMode = SKSceneScaleModeAspectFit;
     CellGrid *mazeGrid = [[CellGrid alloc] init];
-    [mazeGrid buildSimpleMaze];
+    [mazeGrid buildSimpleMazeTwo];
     
     float xPos = self.view.bounds.size.width / 4;
     float yPos = self.view.bounds.size.height / 2;
