@@ -30,8 +30,8 @@ int const PLAYERSIZE = 8;
     self = [super init];
     if (self)
     {
-        self.physicsWorld.gravity = CGPointMake(0,0);
-        self.physicsWorld.contactDelegate = self;
+        // this is never called
+        NSLog(@"init called");
     }
     return self;
 }
@@ -41,22 +41,26 @@ int const PLAYERSIZE = 8;
     if (!self.contentCreated)
     {
         [self createSceneContents];
+        self.physicsWorld.gravity = CGVectorMake(0,0);
+        self.physicsWorld.contactDelegate = self;
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+
         self.contentCreated = YES;
     }
 }
 
 - (void) createSceneContents
 {
-    self.physicsWorld.gravity = CGPointMake(0,0);
+    self.physicsWorld.gravity = CGVectorMake(0,0);
 
     self.backgroundColor = [SKColor lightGrayColor];
     self.scaleMode = SKSceneScaleModeAspectFit;
     CellGrid *mazeGrid = [[CellGrid alloc] init];
- //   [mazeGrid buildSimpleMazeTwo];
-    [mazeGrid buildMaze];
+    [mazeGrid buildSimpleMazeTwo];
+ //   [mazeGrid buildMaze];
     
     float xPos = self.view.bounds.size.width * 1 / 6;
-    float yPos = self.view.bounds.size.height * 8 / 10;
+    float yPos = self.view.bounds.size.height * 7 / 10;
     
     SKSpriteNode *player = [self newPlayer];
     player.position = CGPointMake(xPos, yPos);
@@ -74,7 +78,7 @@ int const PLAYERSIZE = 8;
         yPos += [column count] * TILESIZE;
     }
     
-    // NSLog(@"Cellgrid: %@", [mazeGrid columns]);
+    NSLog(@"Cellgrid: %@", [mazeGrid columns]);
     
     [self addChild: player];
     
@@ -83,16 +87,15 @@ int const PLAYERSIZE = 8;
                action:@selector(refresh:)
      forControlEvents:UIControlEventTouchDown];
     [button setTitle:@"New Maze" forState:UIControlStateNormal];
-    button.frame = CGRectMake(100.0, 20.0, 100.0, 40.0);
+    button.frame = CGRectMake(100.0, 100.0, 100.0, 40.0);
     [self.view addSubview:button];
-
-
-    
     
 }
 
 - (void) refresh: (id) sender
 {
+    for (UIView *v in self.view.subviews)
+        [v removeFromSuperview];
     [self removeAllChildren];
     [self createSceneContents];
 }
@@ -107,15 +110,17 @@ int const PLAYERSIZE = 8;
         tile.color = [SKColor greenColor];
         tile.name = @"endTile";
         tile.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize: tile.size];
-        tile.physicsBody.dynamic = NO;
+        NSLog(@"END TILE OF SIZE %f x %f", tile.size.width, tile.size.height);
+        tile.physicsBody.dynamic = YES;
+        tile.physicsBody.affectedByGravity = NO;
         tile.physicsBody.categoryBitMask = endCategory;
-
+        tile.physicsBody.collisionBitMask = 0;
+        tile.physicsBody.contactTestBitMask = playerCategory;
     }
     
     
     tile.position = CGPointMake(xPos, yPos);
     
-
     [self addChild: tile];
 
     if ([cell northWall])
@@ -143,6 +148,7 @@ int const PLAYERSIZE = 8;
     wall.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wall.size];
     wall.physicsBody.dynamic = NO;
     wall.physicsBody.categoryBitMask = wallsCategory;
+    wall.physicsBody.collisionBitMask = 0;
 
     wall.name = @"wall";
     [self addChild: wall];
@@ -160,6 +166,9 @@ int const PLAYERSIZE = 8;
     player.physicsBody.categoryBitMask = playerCategory;
     player.physicsBody.collisionBitMask = wallsCategory;
     player.physicsBody.contactTestBitMask = endCategory;
+    NSLog(@"%d PLAYER'S CONTACT BIT MASK", player.physicsBody.contactTestBitMask);
+    NSLog(@"%d PLAYER'S CATEGORY BIT MASK", player.physicsBody.categoryBitMask);
+
 
     return player;
 }
@@ -172,15 +181,35 @@ int const PLAYERSIZE = 8;
     CGPoint pos = [touch locationInNode:self];
 
     if (pos.x < player.position.x)
-        self.physicsWorld.gravity = CGPointMake(-10, self.physicsWorld.gravity.y);
+        self.physicsWorld.gravity = CGVectorMake(-10, self.physicsWorld.gravity.dy);
     if (pos.x > player.position.x)
-        self.physicsWorld.gravity = CGPointMake(10, self.physicsWorld.gravity.y);
+        self.physicsWorld.gravity = CGVectorMake(10, self.physicsWorld.gravity.dy);
     if (pos.y > player.position.y)
-        self.physicsWorld.gravity = CGPointMake(self.physicsWorld.gravity.x, 10);
+        self.physicsWorld.gravity = CGVectorMake(self.physicsWorld.gravity.dx, 10);
     if (pos.y < player.position.y)
-        self.physicsWorld.gravity = CGPointMake(self.physicsWorld.gravity.x, -10);
+        self.physicsWorld.gravity = CGVectorMake(self.physicsWorld.gravity.dx, -10);
 
     
+}
+
+
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+    NSLog(@"Touched!");
+    for (UIView *v in self.view.subviews)
+        [v removeFromSuperview];
+    [self removeAllChildren];
+    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(self.frame.size.width/3, self.frame.size.height/4, 100.0, 40.0)];
+    label.text = @"You Won!";
+    [self.view addSubview:label];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(refresh:)
+     forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"New Maze" forState:UIControlStateNormal];
+    button.frame = CGRectMake(self.frame.size.width/3, self.frame.size.height/3, 100.0, 40.0);
+    [self.view addSubview:button];
+
 }
 
 
